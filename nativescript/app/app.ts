@@ -13,7 +13,7 @@ import {TranslateLoader} from 'ng2-translate/ng2-translate';
 import {TNSTranslateLoader} from 'nativescript-ng2-translate/nativescript-ng2-translate';
 
 // config
-import {Config, WindowService, HttpService, DatabaseService} from './app/frameworks/core/index';
+import {Config, WindowService, DatabaseService} from './app/frameworks/core/index';
 import {FIREBASE} from './app/frameworks/core/index';
 Config.PLATFORM_TARGET = Config.PLATFORMS.MOBILE_NATIVE;
 Config.DEBUG.LEVEL_4 = true;
@@ -23,7 +23,7 @@ Config.ROUTER_DIRECTIVES = NS_ROUTER_DIRECTIVES;
 import {NS_APP_PROVIDERS} from './shared/nativescript/index';
 import {routes} from './app/components/app/app.routes';
 import {NSAppComponent} from './pages/app/app.component';
-import {WindowNative, ModalNative, NSHttpService, NSDatabaseService} from './shared/core/index';
+import {WindowNative, NSDatabaseService} from './shared/core/index';
   
 // Uncomment when ready to publish to App Stores:
 // enableProdMode();
@@ -34,8 +34,6 @@ var firebase = require('nativescript-plugin-firebase');
 
 nativeScriptBootstrap(NSAppComponent, [
   provide(WindowService, { useClass: WindowNative }),
-  ModalNative,
-  provide(HttpService, { useClass: NSHttpService }),
   provide(FIREBASE, { useValue: firebase }),
   provide(DatabaseService, { useClass: NSDatabaseService }),
   NS_ROUTER_PROVIDERS,

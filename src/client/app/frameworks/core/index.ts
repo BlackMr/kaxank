@@ -30,7 +30,6 @@ export * from './services/log.service';
 export * from './services/view-broker.service';
 export * from './services/window.service';
 export * from './services/database.service';
-export * from './services/http.service';
 
 // directives
 export * from './directives/platform.directive';

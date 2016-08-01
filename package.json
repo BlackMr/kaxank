@@ -1,5 +1,5 @@
 {
-  "name": "angular2-seed-advanced",
+  "name": "kaxank",
   "version": "0.0.0",
   "description": "Advanced seed for Angular 2 apps",
   "repository": {
@@ -154,8 +154,9 @@
     "@ngrx/core": "^1.0.0",
     "@ngrx/store": "^2.0.0",
     "angulartics2": "^1.1.1",
-    "es6-module-loader": "^0.17.8",
     "core-js": "^2.4.0",
+    "es6-module-loader": "^0.17.8",
+    "firebase": "^3.2.1",
     "lodash": "^4.13.1",
     "ng2-translate": "2.2.2",
     "reflect-metadata": "0.1.3",

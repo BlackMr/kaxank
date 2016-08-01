@@ -24,10 +24,13 @@ export class ProjectConfig extends SeedAdvancedConfig {
 
     // Add `local` third-party libraries to be injected/bundled.
     this.APP_ASSETS = [
-      ...this.APP_ASSETS,
-      // {src: `${this.APP_SRC}/your-path-to-lib/libs/jquery-ui.js`, inject: true, vendor: false}
-      // {src: `${this.CSS_SRC}/path-to-lib/test-lib.css`, inject: true, vendor: false},
-    ];
+    ...this.APP_ASSETS,
+    // {src: `${this.APP_SRC}/your-path-to-lib/libs/jquery-ui.js`, inject: true, vendor: false}
+    // {src: `${this.CSS_SRC}/path-to-lib/test-lib.css`, inject: true, vendor: false},
+  ];  // don't add this, it's already there, just showing where to add the next 2 lines
+
+  this.SYSTEM_CONFIG.paths['firebase'] = `${this.APP_BASE}node_modules/firebase/firebase`;
+  this.SYSTEM_BUILDER_CONFIG.paths['firebase'] = `node_modules/firebase/firebase.js`;
 
     /* Add to or override NPM module configurations: */
     // this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });

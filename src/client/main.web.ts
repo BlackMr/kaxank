@@ -5,7 +5,9 @@ import {bootstrap} from '@angular/platform-browser-dynamic';
 import {APP_BASE_HREF, LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 // config
-import {Config} from './app/frameworks/core/index';
+import {Config, DatabaseService} from './app/frameworks/core/index';
+import {FIREBASE} from './app/frameworks/core/index';
+
 Config.PLATFORM_TARGET = Config.PLATFORMS.WEB;
 Config.DEBUG.LEVEL_4 = true;
 
@@ -19,6 +21,8 @@ import {AppComponent} from './app/components/app/app.component';
 // custom i18n language support
 MultilingualService.SUPPORTED_LANGUAGES = AppConfigService.SUPPORTED_LANGUAGES;
 
+var firebase = require('firebase');
+
 // depending on environments, you could push in different providers as needed
 const ENV_PROVIDERS: Array<any> = [];
 
@@ -31,13 +35,15 @@ let BOOTSTRAP_PROVIDERS: any[] = [
   disableDeprecatedForms(),
   provideForms(),
   ENV_PROVIDERS,
+  provide(FIREBASE, { useValue: firebase }),
   provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' }),
   provide(WindowService, { useValue: window }),
   provide(ConsoleService, { useValue: console }),
   CORE_PROVIDERS,
   ANALYTICS_PROVIDERS,
   APP_PROVIDERS,
-  APP_ROUTER_PROVIDERS
+  APP_ROUTER_PROVIDERS,
+  DatabaseService
 ];
 
 if ('<%= TARGET_DESKTOP %>' === 'true') {

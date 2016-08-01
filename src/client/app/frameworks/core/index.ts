@@ -4,6 +4,10 @@ import {HTTP_PROVIDERS} from '@angular/http';
 // app
 import {LogService} from './services/log.service';
 
+import {OpaqueToken} from '@angular/core';
+
+export const FIREBASE: OpaqueToken = new OpaqueToken('firebase');
+
 export const CORE_PROVIDERS: any[] = [
   HTTP_PROVIDERS,
   LogService
@@ -25,6 +29,8 @@ export * from './services/console.service';
 export * from './services/log.service';
 export * from './services/view-broker.service';
 export * from './services/window.service';
+export * from './services/database.service';
+export * from './services/http.service';
 
 // directives
 export * from './directives/platform.directive';
